@@ -98,6 +98,12 @@ export function useCartMutations() {
     
       const payload = await response.json();
       console.log('payload', payload);
+      if(payload.message=='success'){
+        toast.success('product updated successfully ..')
+      }
+      else{
+        toast.error(payload.error)
+      }
       return payload;
     },
     onSuccess: () => queryClient.invalidateQueries({queryKey:["cart"]}),
@@ -120,6 +126,12 @@ export function useCartMutations() {
     
       const payload = await response.json();
       console.log('payload', payload);
+      if(payload.message=='success'){
+        toast.success('product deleted successfully ..')
+      }
+      else{
+        toast.error(payload.error)
+      }
       return payload;
     },
     onSuccess: () => queryClient.invalidateQueries({queryKey:["cart"]}),
@@ -144,8 +156,8 @@ if(error){
 
  
 return <>
-{data?.cart?<section className="w-full bg-white dark:bg-[#0A2025] py-9 px-8">
-  <h1 className="text-center text-[#191919] dark:text-white text-[32px] font-semibold leading-[38px]">
+{data?.cart?<section className="w-full pt-14 bg-white dark:bg-[#0A2025] py-9 px-8">
+  <h1 className="text-center pt-5 text-[#191919] dark:text-white text-[32px] font-semibold leading-[38px]">
     My Shopping Cart
   </h1>
   <div className="flex items-center mt-8 gap-6">
@@ -222,7 +234,7 @@ return <>
       </button>
     </div>
   </div>
-</section> : <h2>lsa data mgat4</h2>}
+</section> : <h2 className="pt-14">lsa data mgat4</h2>}
 
 
 

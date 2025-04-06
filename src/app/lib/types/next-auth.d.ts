@@ -23,6 +23,7 @@ declare module "next-auth" {
    */
   interface Session {
    user:{
+    name?:string
     id:string
     _id: string;
     firstName: string;
@@ -39,6 +40,14 @@ declare module "next-auth" {
    }
     
   }
+}
+interface Profile{
+  email:string ,
+  email_verified:string ,
+  name:string ,
+  picture:string ,
+  given_name:string ,
+  family_name:string
 }
 declare module "next-auth/jwt" {
     /** Returned by the `jwt` callback and `getToken`, when using JWT sessions */

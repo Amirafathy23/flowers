@@ -103,7 +103,7 @@ async  function handleLogin({email , password}:{email:string , password:string})
       <span className="bg-gray-300 h-px flex-grow t-2 relative top-2" />
     </div>
     <div className="mt-4 w-full flex flex-col items-center  gap-3">
-      <button className="btn btn-outline w-full flex items-center justify-start pl-14 bg-white border border-gray-800 rounded-md shadow-sm max-w-xs px-6 py-2 text-sm font-medium text-gray-800 hover:bg-gray-100 hover:border-blue-700">
+      <button onClick={()=>{signIn('google' , {callbackUrl:'/'})}} className="btn btn-outline w-full flex items-center justify-start pl-14 bg-white border border-gray-800 rounded-md shadow-sm max-w-xs px-6 py-2 text-sm font-medium text-gray-800 hover:bg-gray-100 hover:border-blue-700">
         <svg className="h-6 w-6 mr-2" xmlns="http://www.w3.org/2000/svg" viewBox="-0.5 0 48 48" version="1.1">
           <g id="Icons" stroke="none" strokeWidth={1} fill="none" fillRule="evenodd">
             <g id="Color-" transform="translate(-401.000000, -860.000000)">
@@ -118,28 +118,8 @@ async  function handleLogin({email , password}:{email:string , password:string})
         </svg>
         <span>Continue with Google</span>
       </button>
-      <button className="btn btn-outline w-full flex items-center justify-start pl-14 bg-white border border-gray-800 rounded-md shadow-sm max-w-xs px-6 py-2 text-sm font-medium text-gray-800 hover:bg-gray-100 hover:border-blue-700">
-        <svg className="h-6 w-6 mr-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" version="1.1">
-          <g id="Icons" stroke="none" strokeWidth={1} fill="none" fillRule="evenodd">
-            <g id="Color-" transform="translate(-200.000000, -160.000000)" fill="#4460A0">
-              <path d="M225.638355,208 L202.649232,208 C201.185673,208 200,206.813592 200,205.350603 L200,162.649211 C200,161.18585 201.185859,160 202.649232,160 L245.350955,160 C246.813955,160 248,161.18585 248,162.649211 L248,205.350603 C248,206.813778 246.813769,208 245.350955,208 L233.119305,208 L233.119305,189.411755 L239.358521,189.411755 L240.292755,182.167586 L233.119305,182.167586 L233.119305,177.542641 C233.119305,175.445287 233.701712,174.01601 236.70929,174.01601 L240.545311,174.014333 L240.545311,167.535091 C239.881886,167.446808 237.604784,167.24957 234.955552,167.24957 C229.424834,167.24957 225.638355,170.625526 225.638355,176.825209 L225.638355,182.167586 L219.383122,182.167586 L219.383122,189.411755 L225.638355,189.411755 L225.638355,208 L225.638355,208 Z" id="Facebook">
-              </path>
-            </g>
-          </g>
-        </svg>
-        <span>
-          Continue with Facebook
-        </span>
-      </button>
-      <button className="btn btn-outline w-full flex items-center justify-start pl-14 gap-2 bg-white border border-gray-800 rounded-md shadow-sm max-w-xs px-6 py-2 text-sm font-medium text-gray-800 hover:bg-gray-100 hover:border-blue-700">
-        <svg width={22} height={16} viewBox="0 0 22 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M5.34608 0.224481C9.10854 -0.0748269 12.8924 -0.0748269 16.6548 0.224481L18.4676 0.368118C19.6743 0.463502 20.7079 1.12134 21.2434 2.06202C21.3119 2.18152 21.2605 2.32731 21.1343 2.39858L13.6133 6.65137C12.0003 7.56355 9.96627 7.58331 8.33303 6.70183L0.761779 2.61458C0.639468 2.5488 0.583296 2.41285 0.63839 2.29335C1.12835 1.22987 2.22975 0.471176 3.53327 0.368118L5.34608 0.224481Z" fill="#5A5A5A" />
-          <path d="M0.631802 4.45556C0.444556 4.35469 0.205696 4.46324 0.18397 4.66059C-0.120666 7.41904 -0.046967 10.2027 0.405066 12.948C0.643325 14.3952 1.93653 15.5047 3.53293 15.6319L5.34562 15.7755C9.10808 16.0748 12.8919 16.0748 16.6544 15.7755L18.4672 15.6319C20.0634 15.5047 21.3566 14.3952 21.5949 12.948C22.0601 10.1227 22.1246 7.25678 21.7885 4.41939C21.7649 4.22094 21.5221 4.11349 21.3356 4.21984L14.5606 8.05053C12.3782 9.28394 9.62636 9.31026 7.41661 8.11741L0.631802 4.45556Z" fill="#5A5A5A" />
-        </svg>
-        <span>
-          Continue with Email
-        </span>
-      </button>
+     
+      
     </div>
   </div>
   

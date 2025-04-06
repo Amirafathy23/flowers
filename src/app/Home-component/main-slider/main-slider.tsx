@@ -12,7 +12,7 @@ import { Navigation, Pagination, Autoplay } from "swiper/modules";
 import Image from 'next/image';
 export default function MainSlider() {
   return <>
-  <div className="flex px-8 ">
+  <div className="flex px-8 pt-14 ">
     <div className="w-1/3 bg-gray-200">
     <div className=' relative w-full h-[400px]'>
     <Image src={banner} alt="gift" fill className="object-cover" />
