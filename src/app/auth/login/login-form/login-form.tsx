@@ -3,11 +3,14 @@ import React, { useState } from 'react'
 import { useFormik } from 'formik'
 import * as Yup from 'yup'
 import { signIn } from 'next-auth/react'
+import Link from 'next/link'
+import { useRouter } from 'next/navigation';
+
 export default function Loginform() {
   const [error, seterror] = useState < string |null >(null)
   const [loading , setloading] = useState < boolean >(false)
   
-
+  const router = useRouter();
 async  function handleLogin({email , password}:{email:string , password:string}){
 
   setloading(true)
@@ -17,10 +20,19 @@ async  function handleLogin({email , password}:{email:string , password:string})
       redirect:false
 
     })
-    if(response?.ok) {
+
+    // if(response?.ok) {
+    //   setloading(false)
+    //   window.location.href=response.url || '/'    
+    //     return ;
+    // }
+
+
+    // for build
+    if (response?.ok) {
       setloading(false)
-      window.location.href=response.url || '/'    
-        return ;
+      router.push(response.url || '/');
+      return;
     }
     seterror(response?.error || 'Something wrong , try again')
     setloading(false)
@@ -56,7 +68,7 @@ async  function handleLogin({email , password}:{email:string , password:string})
     <div className='bg-gradient-to-tr  from-[#A7D477] to-white py-10'>
   <div className=' bg-white p-10  shadow-xl max-w-md py-10 mx-auto'>
       <h3 className='text-2xl  text-center uppercase font-mono my-3 font-semibold'>Login now</h3>
-  <form onSubmit={formik.handleSubmit} action='/api/auth/callback/credentials' className="">
+  <form onSubmit={formik.handleSubmit}  className="">
   
     <div className="relative z-0 w-full mb-8 group">
       <input value={formik.values.email} onBlur={formik.handleBlur} onChange={formik.handleChange} type="email" name="email" id="floating_email" className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-green-500 focus:outline-none focus:ring-0 focus:border-green-600 peer" placeholder=" "  />
@@ -94,8 +106,9 @@ async  function handleLogin({email , password}:{email:string , password:string})
 
 
   <div className="flex items-center justify-between mt-8">
-    <link href="{'/forget-password'}" className="font-normal text-red-500" />
-    Forgot Password?
+  <Link href="/forget-password" className="font-normal text-green-500">
+  Forgot Password?
+</Link>
   </div>
   
   <div>
