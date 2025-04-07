@@ -3,7 +3,6 @@ import React, { useState } from 'react'
 import { useFormik } from 'formik'
 import * as Yup from 'yup'
 import { signIn } from 'next-auth/react'
-import { useRouter } from 'next/router'
 export default function Loginform() {
   const [error, seterror] = useState < string |null >(null)
   const [loading , setloading] = useState < boolean >(false)
