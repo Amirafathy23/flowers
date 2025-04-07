@@ -2,12 +2,15 @@
 import React, { useState } from 'react'
 import { useFormik } from 'formik'
 import * as Yup from 'yup'
-import { signIn } from 'next-auth/react'
+import { signIn, useSession } from 'next-auth/react'
+import { useRouter } from 'next/router'
 export default function Loginform() {
   const [error, seterror] = useState < string |null >(null)
   const [loading , setloading] = useState < boolean >(false)
+  
 
 async  function handleLogin({email , password}:{email:string , password:string}){
+
   setloading(true)
     const response=await signIn('credentials' , {
       email:email ,
