@@ -38,12 +38,12 @@ export default async function middleware(request: NextRequest) {
 
   if (token && authPages.includes(url)) {
     const redirectUrl = new URL('/', request.nextUrl.origin);
-    return NextResponse.redirect(redirectUrl); // ✅ استخدم redirect
+    return NextResponse.redirect(redirectUrl); 
   }
 
   if (!token && privatePages.includes(url)) {
     const redirectUrl = new URL('/auth/login', request.nextUrl.origin);
-    return NextResponse.redirect(redirectUrl); // ✅ استخدم redirect
+    return NextResponse.redirect(redirectUrl); 
   }
 
   return NextResponse.next();

@@ -2,9 +2,9 @@
 
 import { Product } from './lib/types/product.d';
 import Link from "next/link";
-import AddCartBtn from "./Home-component/add-cart-btn/add-cart-btn";
 import Image from "next/image";
-import MainSlider from "./Home-component/main-slider/main-slider";
+import MainSlider from './Home-component/main-slider/main-slider';
+import AddCartBtn from './Home-component/add-cart-btn/add-cart-btn';
 
 export default async function Home() {
   async   function getAllProduct(){

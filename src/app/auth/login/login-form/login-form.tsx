@@ -32,6 +32,7 @@ async  function handleLogin({email , password}:{email:string , password:string})
     if (response?.ok) {
       setloading(false)
       router.push(response.url || '/');
+      router.refresh()
       return;
     }
     seterror(response?.error || 'Something wrong , try again')
