@@ -4,13 +4,13 @@ import { useFormik } from 'formik'
 import * as Yup from 'yup'
 import { signIn } from 'next-auth/react'
 import Link from 'next/link'
-import { useRouter } from 'next/navigation';
+// import { useRouter } from 'next/navigation';
 
 export default function Loginform() {
   const [error, seterror] = useState < string |null >(null)
   const [loading , setloading] = useState < boolean >(false)
   
-  const router = useRouter();
+  // const router = useRouter();
 async  function handleLogin({email , password}:{email:string , password:string}){
 
   setloading(true)
