@@ -21,20 +21,20 @@ async  function handleLogin({email , password}:{email:string , password:string})
 
     })
 
-    // if(response?.ok) {
-    //   setloading(false)
-    //   window.location.href=response.url || '/'    
-    //     return ;
-    // }
+    if(response?.ok) {
+      setloading(false)
+      window.location.href=response.url || '/'    
+        return ;
+    }
 
 
     // for build
-    if (response?.ok) {
-      setloading(false)
-      router.push(response.url || '/');
-      router.refresh()
-      return;
-    }
+    // if (response?.ok) {
+    //   setloading(false)
+    //   router.push(response.url || '/');
+    //   router.refresh()
+    //   return;
+    // }
     seterror(response?.error || 'Something wrong , try again')
     setloading(false)
 
