@@ -1,16 +1,19 @@
 'use client'
-import React, { useState } from 'react'
+
+import React, { useState , useEffect } from 'react'
 import { useFormik } from 'formik'
 import * as Yup from 'yup'
-import { signIn } from 'next-auth/react'
+import { signIn, useSession } from 'next-auth/react'
 import Link from 'next/link'
-// import { useRouter } from 'next/navigation';
+import { useRouter } from 'next/navigation';
 
 export default function Loginform() {
+  const { data: session, status } = useSession();
+  const router = useRouter();
   const [error, seterror] = useState < string |null >(null)
   const [loading , setloading] = useState < boolean >(false)
   
-  // const router = useRouter();
+ 
 async  function handleLogin({email , password}:{email:string , password:string}){
 
   setloading(true)
@@ -28,7 +31,7 @@ async  function handleLogin({email , password}:{email:string , password:string})
     }
 
 
-    // for build
+    // 
     // if (response?.ok) {
     //   setloading(false)
     //   router.push(response.url || '/');
@@ -65,6 +68,18 @@ async  function handleLogin({email , password}:{email:string , password:string})
             onSubmit:handleLogin,
           
           })
+
+
+          useEffect(() => {
+            if (status === 'authenticated') {
+              const role = session?.user?.role;
+              if (role === 'admin') {
+                router.replace('/dashboard');
+              } else {
+                router.replace('/');
+              }
+            }
+          }, [status, session, router]);
     return <>
     <div className='bg-gradient-to-tr  from-[#A7D477] to-white py-10'>
   <div className=' bg-white p-10  shadow-xl max-w-md py-10 mx-auto'>

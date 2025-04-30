@@ -8,7 +8,7 @@ import Image from "next/image";
 import Link from "next/link";
 import toast from "react-hot-toast";
 
-// جلب بيانات السلة باستخدام React Query
+
 export function useCart() {
   const { data: session } = useSession();
   const token =session?.user?.token
@@ -39,7 +39,7 @@ export function useCart() {
   });
 }
 
-// إدارة عمليات الـ CRUD على السلة
+
 export function useCartMutations() {
   const { data: session } = useSession();
   const token =session?.user?.token
@@ -140,7 +140,7 @@ export function useCartMutations() {
   return { addToCart, updateCart, removeFromCart };
 }
 
-// مكون التفاعل مع السلة
+
 export default function CartActions() {
 
   const {  data, isLoading, error } = useCart();
