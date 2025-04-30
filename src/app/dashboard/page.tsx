@@ -1,11 +1,11 @@
-// app/dashboard/page.tsx
+
 
 'use server'
 
 import React from 'react'
 import { getServerSession } from 'next-auth'
 
-import Image from 'next/image'
+
 
 import Link from 'next/link'
 import { authOptions } from '@/auth'
@@ -15,10 +15,6 @@ import { authOptions } from '@/auth'
 export default async function Dashboard() {
    const session = await getServerSession(authOptions)
   
-  // إذا لم يكن هناك جلسة أو إذا كان الدور غير admin، يمكنك إعادة توجيه المستخدم
-  // if (!session || session.user?.role !== 'admin') {
-  //   return <div>You are not authorized to access this page.</div>
-  // }
 
 
 
